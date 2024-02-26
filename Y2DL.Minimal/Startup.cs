@@ -131,7 +131,14 @@ public class Startup
         var client = _serviceProvider.GetRequiredService<DiscordSocketClient>();
         await loopService.StartAsync(CancellationToken.None);
         await commands.RegisterAsync();
-        await client.SetActivityAsync(new Game("Spaghetti Code Simulator", ActivityType.Competing));
+        var guildCount = client.Guilds.Count();
+        var guildsUserCount = client.Guilds.Select(x => x.Users.Count());
+        var UserCount = 0;
+        foreach (int gUC in guildsUserCount)
+        {
+            UserCount += gUC;
+        }
+        await client.SetCustomStatusAsync($"Serving {UserCount} users from {guildCount} guilds");
         Log.Information("Bot ready!");
     }
 
