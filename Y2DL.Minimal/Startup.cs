@@ -133,11 +133,7 @@ public class Startup
         await commands.RegisterAsync();
         var guildCount = client.Guilds.Count();
         var guildsUserCount = client.Guilds.Select(x => x.Users.Count());
-        var UserCount = 0;
-        foreach (int gUC in guildsUserCount)
-        {
-            UserCount += gUC;
-        }
+        var UserCount = guildsUserCount.Sum();
         await client.SetCustomStatusAsync($"Serving {UserCount} users from {guildCount} guilds");
         Log.Information("Bot ready!");
     }

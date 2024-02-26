@@ -57,6 +57,11 @@ public class LoopService : BackgroundService
 
                     await Task.Delay(1000, stoppingToken);
                 }
+
+                var guildCount = _client.Guilds.Count();
+                var guildsUserCount = _client.Guilds.Select(x => x.Users.Count());
+                var UserCount = guildsUserCount.Sum();
+                await _client.SetCustomStatusAsync($"Serving {UserCount} users from {guildCount} guilds");
                 
                 await Task.Delay(_config.Main.UpdateInterval, stoppingToken);
             }
