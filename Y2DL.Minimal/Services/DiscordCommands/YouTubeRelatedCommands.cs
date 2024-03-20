@@ -9,6 +9,8 @@ using Embed = Discord.Embed;
 namespace Y2DL.Minimal.Services.DiscordCommands;
 
 [Group("ytinfoformat", "Show YouTube channel/video info but you are the one that formats the output")]
+[CommandContextType(InteractionContextType.BotDm, InteractionContextType.PrivateChannel, InteractionContextType.Guild)]
+[IntegrationType(ApplicationIntegrationType.UserInstall, ApplicationIntegrationType.GuildInstall)]
 public class YouTubeRelatedCommandsFormat : InteractionModuleBase<SocketInteractionContext>
 {
     private readonly YoutubeService _youtubeService;
@@ -58,6 +60,8 @@ public class YouTubeRelatedCommandsFormat : InteractionModuleBase<SocketInteract
 }
 
 [Group("ytinfobulk", "Show YouTube channel/video info in bulk")]
+[CommandContextType(InteractionContextType.BotDm, InteractionContextType.PrivateChannel, InteractionContextType.Guild)]
+[IntegrationType(ApplicationIntegrationType.UserInstall, ApplicationIntegrationType.GuildInstall)]
 public class YouTubeRelatedCommandsBulk : InteractionModuleBase<SocketInteractionContext>
 {
     private readonly YoutubeService _youtubeService;
@@ -173,6 +177,8 @@ Views: **{channel.Statistics.FormattedViews}**
 }
 
 [Group("ytinfo", "Show YouTube channel/video/playlist info")]
+[CommandContextType(InteractionContextType.BotDm, InteractionContextType.PrivateChannel, InteractionContextType.Guild)]
+[IntegrationType(ApplicationIntegrationType.UserInstall, ApplicationIntegrationType.GuildInstall)]
 public class YouTubeRelatedCommands : InteractionModuleBase<SocketInteractionContext>
 {
     private readonly YoutubeService _youtubeService;
