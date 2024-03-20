@@ -1,2 +1,6 @@
 .vs
 .vscode
+Y2DL.Minimal/Y2DLConfig.yml
+Y2DL.Minimal/Y2DL.db
+Y2DL.Minimal/Y2DL.db-shm
+Y2DL.Minimal/Y2DL.db-wal
